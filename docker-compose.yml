@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   mysql:
-    image: mysql/mysql-server
+    image: mysql/mysql-server:5.7.41
     restart: always
     container_name: mysql
     ports:
@@ -12,4 +12,3 @@ services:
       - /soft/mysql/my.cnf:/etc/my.cnf                  # 指定MySQL配置文件
     environment:
       - MYSQL_ROOT_PASSWORD=${passwd}
-
