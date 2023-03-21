@@ -5,7 +5,7 @@ services:
     restart: always
     container_name: mysql
     ports:
-      - 3306:3306
+      - 6606:3306
     volumes:
       - /soft/mysql/initdb:/docker-entrypoint-initdb.d  # 绑定初始化数据库脚本
       - /soft/mysql/datadir:/var/lib/mysql              # 指定数据库数据存储位置
