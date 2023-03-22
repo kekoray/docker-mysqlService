@@ -8,10 +8,8 @@ services:
       - 6606:3306
     volumes:
       - /soft/mysql/initdb:/docker-entrypoint-initdb.d  # 绑定初始化数据库脚本
-      - /soft/mysql/datadir:/var/lib/mysql              # 指定数据库数据存储位置
+      - /soft/mysql/data:/var/lib/mysql                 # 指定数据库数据存储位置
       - /soft/mysql/my.cnf:/etc/my.cnf                  # 指定MySQL配置文件
     environment:
       - MYSQL_ROOT_PASSWORD=${passwd}
-
-
 
