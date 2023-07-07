@@ -37,7 +37,7 @@ docker-mysqlService/
 **1.进入容器中的MySQL**
 
 ```shell
-docker exec -it mysql_dev mysql -uroot -p${passwd}
+docker exec -it mysql mysql -uroot -p${passwd}
 ```
 
 **2.修改root的密码以及跨域访问**
