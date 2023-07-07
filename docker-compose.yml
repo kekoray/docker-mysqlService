@@ -2,15 +2,15 @@ version: '3.1'
 services:
   mysql:
     image: mysql:latest
-    restart: always
     container_name: mysql
+    hostname: mysql
+    restart: always
     ports:
-      - 6606:3306
+      - 3306:3306
     volumes:
       - /etc/localtime:/etc/localtime
-      - /soft/mysql/initdb:/docker-entrypoint-initdb.d  # 绑定初始化数据库脚本
-      - /soft/mysql/data:/var/lib/mysql                 # 指定数据库数据存储位置
-      - /soft/mysql/my.cnf:/etc/my.cnf                  # 指定MySQL配置文件
+      - ./initdb:/docker-entrypoint-initdb.d    # 初始化数据库脚本
+      - ./data:/var/lib/mysql                   # 数据库数据存储位置
+      - ./conf/my.cnf:/etc/my.cnf               # 配置文件
     environment:
       - MYSQL_ROOT_PASSWORD=${passwd}
-
