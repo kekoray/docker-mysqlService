@@ -13,7 +13,9 @@ services:
       - ./initdb:/docker-entrypoint-initdb.d    # 初始化数据库脚本
       - ./data:/var/lib/mysql                   # 数据库数据存储位置
     environment:
-      - MYSQL_ROOT_PASSWORD=${passwd}
+      - MYSQL_USER=${user}
+      - MYSQL_PASSWORD=${passwd}
+      - MYSQL_ROOT_PASSWORD=${root_passwd}
     networks:
         default:
             ipv4_address: 192.168.5.10
