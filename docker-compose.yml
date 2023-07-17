@@ -14,3 +14,13 @@ services:
       - ./data:/var/lib/mysql                   # 数据库数据存储位置
     environment:
       - MYSQL_ROOT_PASSWORD=${passwd}
+    networks:
+        default:
+            ipv4_address: 192.168.5.10
+
+# docker network create --driver bridge --subnet 192.168.5.0/25 --gateway 192.168.5.1  unite_net
+
+networks:
+  default:
+    external: true
+    name: unite_net
